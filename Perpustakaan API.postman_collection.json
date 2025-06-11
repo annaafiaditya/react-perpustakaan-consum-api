@@ -1,0 +1,895 @@
+{
+	"info": {
+		"_postman_id": "83d55ac2-3f22-428b-b130-e8693f9b518b",
+		"name": "Perpustakaan API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14305818"
+	},
+	"item": [
+		{
+			"name": "Buku",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/buku",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"buku"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "no_rak",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "judul",
+									"value": "Hujan",
+									"type": "text"
+								},
+								{
+									"key": "pengarang",
+									"value": "Tere Liye",
+									"type": "text"
+								},
+								{
+									"key": "tahun_terbit",
+									"value": "2018",
+									"type": "text"
+								},
+								{
+									"key": "penerbit",
+									"value": "Gramedia",
+									"type": "text"
+								},
+								{
+									"key": "stok",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "detail",
+									"value": "absgaakakauysauii",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/buku",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"buku"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "no_rak",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "judul",
+									"value": "Pulang",
+									"type": "text"
+								},
+								{
+									"key": "pengarang",
+									"value": "Tere Liye",
+									"type": "text"
+								},
+								{
+									"key": "tahun_terbit",
+									"value": "2018",
+									"type": "text"
+								},
+								{
+									"key": "penerbit",
+									"value": "Gramedia",
+									"type": "text"
+								},
+								{
+									"key": "stok",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "detail",
+									"value": "absgaakakauysauii",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/buku/{id}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"buku",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/buku/{id}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"buku",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/buku/{id}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"buku",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "no_ktp",
+									"value": "111111111111111",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Fema",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Bogor",
+									"type": "text"
+								},
+								{
+									"key": "tgl_lahir",
+									"value": "2004-06-22",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/member",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "no_ktp",
+									"value": "111111111111111",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Fema F",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Bogor",
+									"type": "text"
+								},
+								{
+									"key": "tgl_lahir",
+									"value": "2004-06-22",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/member/{id}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"member",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/member",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/member/{id}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"member",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/member/{id}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"member",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Peminjaman",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_buku",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_member",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "tgl_pinjam",
+									"value": "2025-05-05 10:10:00",
+									"type": "text"
+								},
+								{
+									"key": "tgl_pengembalian",
+									"value": "2025-08-05 10:10:00",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/peminjaman",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"peminjaman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/peminjaman",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"peminjaman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail by id_member",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/peminjaman/{id_member}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"peminjaman",
+								"{id_member}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pengembalian",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/peminjaman/pengembalian/{id_peminjaman}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"peminjaman",
+								"pengembalian",
+								"{id_peminjaman}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Denda",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_member",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "id_buku",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jumlah_denda",
+									"value": "200000",
+									"type": "text"
+								},
+								{
+									"key": "jenis_denda",
+									"value": "kerusakan",
+									"description": "['terlambat','kerusakan','lainnya']",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "cover",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/denda",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"denda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/denda",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"denda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail by id_member",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://45.64.100.26:88/perpus-api/public/api/denda/{id_member}",
+							"protocol": "http",
+							"host": [
+								"45",
+								"64",
+								"100",
+								"26"
+							],
+							"port": "88",
+							"path": [
+								"perpus-api",
+								"public",
+								"api",
+								"denda",
+								"{id_member}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Fema",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "fema@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "c_password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://45.64.100.26:88/perpus-api/public/api/register",
+					"protocol": "http",
+					"host": [
+						"45",
+						"64",
+						"100",
+						"26"
+					],
+					"port": "88",
+					"path": [
+						"perpus-api",
+						"public",
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "fema@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://45.64.100.26:88/perpus-api/public/api/login",
+					"protocol": "http",
+					"host": [
+						"45",
+						"64",
+						"100",
+						"26"
+					],
+					"port": "88",
+					"path": [
+						"perpus-api",
+						"public",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "3|5ZWHUuu7E7LLRDCe73stIwoOvzHVdudVerORYfbX",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
