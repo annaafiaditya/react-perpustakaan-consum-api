@@ -77,29 +77,30 @@ const BooksPage = () => {
     if (searchQuery) {
       const lowerCaseSearch = searchQuery.toLowerCase();
       filtered = allBooks.filter(book =>
-        book.judul.toLowerCase().includes(lowerCaseSearch)
-        // Tambahkan kolom lain jika ingin mencari di lebih dari satu kolom
-        // || book.pengarang.toLowerCase().includes(lowerCaseSearch)
-        // || book.penerbit.toLowerCase().includes(lowerCaseSearch)
+        book.judul.toLowerCase().includes(lowerCaseSearch) ||
+        book.pengarang.toLowerCase().includes(lowerCaseSearch) ||
+        book.penerbit.toLowerCase().includes(lowerCaseSearch)
       );
     }
 
     // 2. Sorting
-    filtered.sort((a, b) => {
+    return [...filtered].sort((a, b) => {
       const aValue = a[sortBy];
       const bValue = b[sortBy];
 
-      if (aValue === undefined || bValue === undefined) return 0; // Handle missing properties
+      if (aValue === undefined || aValue === null) return sortOrder === 'asc' ? 1 : -1;
+      if (bValue === undefined || bValue === null) return sortOrder === 'asc' ? -1 : 1;
 
-      // Basic comparison for numbers and strings
       if (typeof aValue === 'string' && typeof bValue === 'string') {
-        return sortOrder === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+        return sortOrder === 'asc'
+          ? aValue.localeCompare(bValue, 'id')
+          : bValue.localeCompare(aValue, 'id');
       } else {
-        return sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
+        return sortOrder === 'asc'
+          ? Number(aValue) - Number(bValue)
+          : Number(bValue) - Number(aValue);
       }
     });
-
-    return filtered;
   }, [allBooks, searchQuery, sortBy, sortOrder]);
 
   // Logika Pagination LOKAL
@@ -111,10 +112,9 @@ const BooksPage = () => {
     return processedBooks.slice(startIndex, endIndex);
   }, [processedBooks, currentPage, itemsPerPage]);
 
-
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
-    setCurrentPage(1); // Reset to first page on search input
+    setCurrentPage(1);
   };
 
   const handleSearchButtonClick = () => {
@@ -127,7 +127,6 @@ const BooksPage = () => {
     // Tidak perlu panggil fetchBooks lagi karena data sudah ada di allBooks
   };
 
-
   const handleSort = (column) => {
     if (sortBy === column) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
@@ -135,7 +134,7 @@ const BooksPage = () => {
       setSortBy(column);
       setSortOrder('asc');
     }
-    setCurrentPage(1); // Reset to first page on sort change
+    setCurrentPage(1);
   };
 
   const handlePageChange = (page) => {
@@ -240,7 +239,7 @@ const BooksPage = () => {
       return <p className="no-data-message">Tidak ada buku ditemukan.</p>;
     }
     if (currentBooks.length === 0 && totalItems > 0) { // No books on current page, but some exist overall (e.g. search led to empty page)
-        return <p className="no-data-message">Tidak ada buku di halaman ini dengan kriteria pencarian/filter yang diberikan.</p>;
+      return <p className="no-data-message">Tidak ada buku di halaman ini dengan kriteria pencarian/filter yang diberikan.</p>;
     }
 
 
@@ -250,13 +249,13 @@ const BooksPage = () => {
           <table className="data-table">
             <thead>
               <tr>
-                <th onClick={() => handleSort('id')}>ID{getSortIcon('id')}</th>
-                <th onClick={() => handleSort('no_rak')}>No Rak{getSortIcon('no_rak')}</th>
-                <th onClick={() => handleSort('judul')}>Judul{getSortIcon('judul')}</th>
-                <th onClick={() => handleSort('pengarang')}>Pengarang{getSortIcon('pengarang')}</th>
-                <th onClick={() => handleSort('tahun_terbit')}>Tahun Terbit{getSortIcon('tahun_terbit')}</th>
-                <th onClick={() => handleSort('penerbit')}>Penerbit{getSortIcon('penerbit')}</th>
-                <th onClick={() => handleSort('stok')}>Stok{getSortIcon('stok')}</th>
+                <th>ID</th>
+                <th>No Rak</th>
+                <th>Judul</th>
+                <th>Pengarang</th>
+                <th>Tahun Terbit</th>
+                <th>Penerbit</th>
+                <th>Stok</th>
                 <th>Detail</th>
                 <th>Aksi</th>
               </tr>
@@ -315,6 +314,28 @@ const BooksPage = () => {
             }
           }}
         />
+        <select
+          className="form-control sort-select"
+          value={`${sortBy}-${sortOrder}`}
+          onChange={(e) => {
+            const [newSortBy, newSortOrder] = e.target.value.split('-');
+            setSortBy(newSortBy);
+            setSortOrder(newSortOrder);
+            setCurrentPage(1);
+          }}
+          style={{ width: '150px', fontSize: '0.9rem' }}
+        >
+          <option value="no_rak-asc">No Rak (A-Z)</option>
+          <option value="no_rak-desc">No Rak (Z-A)</option>
+          <option value="judul-asc">Judul (A-Z)</option>
+          <option value="judul-desc">Judul (Z-A)</option>
+          <option value="pengarang-asc">Pengarang (A-Z)</option>
+          <option value="pengarang-desc">Pengarang (Z-A)</option>
+          <option value="penerbit-asc">Penerbit (A-Z)</option>
+          <option value="penerbit-desc">Penerbit (Z-A)</option>
+          <option value="tahun_terbit-asc">Tahun Terbit (Terlama)</option>
+          <option value="tahun_terbit-desc">Tahun Terbit (Terbaru)</option>
+        </select>
         <button type="button" className="button primary" onClick={handleSearchButtonClick}>
           Cari
         </button>

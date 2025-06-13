@@ -81,6 +81,12 @@ const EditMemberPage = () => {
       return;
     }
 
+    if (formData.no_ktp.length < 16) {
+      setError('Nomor KTP harus minimal 16 digit');
+      setSubmitting(false);
+      return;
+    }
+
     try {
       const response = await axios.put(`${API_URL}${API_ENDPOINTS.MEMBERS}/${id}`, formData, {
         headers: {
